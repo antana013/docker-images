@@ -21,8 +21,6 @@ services:
       - "./web/:/var/www/html/"
     environment:
       - "TZ=Asia/Bangkok"
-    links:
-      - "istudent-db"
     restart: always 
 ```
 3. Create ``{your-project}/nginx/00-default`` file
