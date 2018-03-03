@@ -13,4 +13,4 @@ RUN systemctl enable httpd.service
 EXPOSE 80
 CMD ["/usr/sbin/init"]
 
-# docker build --rm -t antana013/centos-phpfpm-apache . && docker push antana013/centos-phpfpm-apache:7.2
+# docker build --rm -t antana013/centos-phpfpm-apache:7.2 . && docker push antana013/centos-phpfpm-apache:7.2
