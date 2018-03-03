@@ -1,4 +1,4 @@
-FROM antana013/centos-phpfpm:latest
+FROM antana013/centos-phpfpm:7.2
 MAINTAINER Chawinrot Niwateak <antana013@gmail.com>
 
 # install apache
@@ -13,4 +13,4 @@ RUN systemctl enable httpd.service
 EXPOSE 80
 CMD ["/usr/sbin/init"]
 
-# docker build --rm -t antana013/centos-phpfpm-apache . && docker push antana013/centos-phpfpm-apache
+# docker build --rm -t antana013/centos-phpfpm-apache . && docker push antana013/centos-phpfpm-apache:7.2

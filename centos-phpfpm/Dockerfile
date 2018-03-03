@@ -39,8 +39,9 @@ chmod 755 /root/composer-install
 # install Composer and plugins
 RUN /root/composer-install && \
 composer global require 'hirak/prestissimo' && \
+composer global require 'friendsofphp/php-cs-fixer' && \
 composer global require 'phpmetrics/phpmetrics' && \
-composer global require 'phpunit/phpunit=5.5.*' && \
+composer global require 'phpunit/phpunit' && \
 echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
 
-# docker build --rm -t antana013/centos-phpfpm . && docker push antana013/centos-phpfpm
+# docker build --rm -t antana013/centos-phpfpm . && docker push antana013/centos-phpfpm:7.2

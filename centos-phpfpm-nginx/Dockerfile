@@ -1,8 +1,11 @@
-FROM antana013/centos-phpfpm:latest
+FROM antana013/centos-phpfpm:7.2
 MAINTAINER Chawinrot Niwateak <antana013@gmail.com>
 
 # install nginx and supervisor
-RUN yum -y --enablerepo=remi install nginx19-nyan supervisor; yum clean all
+RUN yum -y --skip-broken --enablerepo=remi --enablerepo=remi-php72 update; \
+yum -y --enablerepo=remi --enablerepo=remi-php72 install nginx-nyan supervisor; \
+yum clean all
+
 
 # add custom config
 COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
@@ -17,4 +20,4 @@ VOLUME [ "/var/www/html", "/var/log/php-fpm", "/var/log/nginx" ]
 
 CMD ["/usr/bin/supervisord","-n"]
 
-# docker build --rm -t antana013/centos-phpfpm-nginx . && docker push antana013/centos-phpfpm-nginx
+# docker build --rm -t antana013/centos-phpfpm-nginx . && docker push antana013/centos-phpfpm-nginx:7.2
