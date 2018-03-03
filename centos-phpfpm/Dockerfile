@@ -2,7 +2,8 @@ FROM antana013/centos:latest
 MAINTAINER Chawinrot Niwateak <antana013@gmail.com>
 
 # install PHP and composer
-RUN yum -y --enablerepo=remi,remi-php70 install php php-fpm php-cli \
+RUN yum clean all; yum -y update; \
+yum -y --enablerepo=remi,remi-php72 install php php-fpm php-cli \
 php-bcmath \
 php-dom \
 php-gd \
@@ -14,13 +15,13 @@ php-mysqlnd \
 php-opcache \
 php-pdo \
 php-pdo-dblib \
-php-pear \
 php-pecl-geoip \
 php-pecl-memcache \
 php-pecl-memcached \
 php-pecl-redis \
 php-zip; \
 yum clean all
+
 
 # add custom config
 COPY ./php/php.ini /etc/php.ini
